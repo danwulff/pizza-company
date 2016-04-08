@@ -61,7 +61,7 @@ function getTotalCost (pizzas) {
 //redraws borders around ingredient pictures
 function redrawBorders(toppings, pizzas) {
   //redraw all img borders black
-  $(".topping").css("border", "3px solid black");
+  $(".topping").css("border", "5px solid black");
   //parse toppings and turn appropriate borders green
   toppings.forEach(function (item) {
     if(pizzas[thisPizza()].hasTopping(item)) {
@@ -69,7 +69,6 @@ function redrawBorders(toppings, pizzas) {
     }
   });
 }
-
 //gets the index of the pizza currently being altered
 function thisPizza() {
   return parseInt($("#pizzaNumber").val());
@@ -97,9 +96,9 @@ var pizzas = [];
     //draw borders for first pizza
     redrawBorders(availableToppings, pizzas);
     //update cost for first pizzaSize
-    $("#pizzaCost").text("$" + pizzas[thisPizza()].getCost());
+    $("#pizzaCost").text("$" + pizzas[thisPizza()].getCost().toFixed(2));
     //update total cost
-    $("#totalPrice").text("$" + getTotalCost(pizzas));
+    $("#totalPrice").text("$" + getTotalCost(pizzas).toFixed(2));
     //show main content
     $("#mainContent").show();
     $("#total").show();
@@ -109,8 +108,10 @@ var pizzas = [];
   $("#pizzaNumber").change(function(){
     //redraws borders
     redrawBorders(availableToppings, pizzas);
+    //change size shown
+    $("#pizzaSize").val(pizzas[thisPizza()].size);
     //get cost and display
-    $("#pizzaCost").text("$" + pizzas[thisPizza()].getCost());
+    $("#pizzaCost").text("$" + pizzas[thisPizza()].getCost().toFixed(2));
   });
 
   //anytime the pizza size is changed
@@ -118,9 +119,9 @@ var pizzas = [];
     //set new pizza size for the selected pizza
     pizzas[thisPizza()].size = $("#pizzaSize").val();
     //print new cost
-    $("#pizzaCost").text("$" + pizzas[thisPizza()].getCost());
+    $("#pizzaCost").text("$" + pizzas[thisPizza()].getCost().toFixed(2));
     //update total cost
-    $("#totalPrice").text("$" + getTotalCost(pizzas));
+    $("#totalPrice").text("$" + getTotalCost(pizzas).toFixed(2));
   });
 
   //when an ingredient is clicked
@@ -138,8 +139,8 @@ var pizzas = [];
     //redraw borders
     redrawBorders(availableToppings, pizzas);
     //print cost
-    $("#pizzaCost").text("$" + pizzas[thisPizza()].getCost());
+    $("#pizzaCost").text("$" + pizzas[thisPizza()].getCost().toFixed(2));
     //update total cost
-    $("#totalPrice").text("$" + getTotalCost(pizzas));
+    $("#totalPrice").text("$" + getTotalCost(pizzas).toFixed(2));
   });
 });
