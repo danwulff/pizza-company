@@ -13,8 +13,8 @@ _This is an example of javascript use, specifically object oriented programming.
 * _Be sure to place all provided files/folders as seen in the repository into a single directory_
 * _Open index.html_
 
-_This website is fully self contained and will work with any browser that is supported by bootstrap v3.3.6. & jQuery v1.12.2 For more info visit: http://v4-alpha.getbootstrap.com/getting-started/browsers-devices/
-https://blog.jquery.com/2016/03/17/jquery-1-12-2-and-2-2-2-released/_
+_This website is fully self contained and will work with any browser that is supported by bootstrap v3.3.6. & jQuery v1.12.3 For more info visit: http://v4-alpha.getbootstrap.com/getting-started/browsers-devices/
+https://blog.jquery.com/2016/04/05/jquery-1-12-3-and-2-2-3-released/_
 
 ## Known Bugs
 
