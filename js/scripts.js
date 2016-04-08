@@ -73,6 +73,14 @@ function redrawBorders(toppings, pizzas) {
 function thisPizza() {
   return parseInt($("#pizzaNumber").val());
 }
+//print out order summary
+function orderSummary(pizzas) {
+  $("#orderList").html("");
+  for(index = 0; index < pizzas.length; index++){
+    $("#orderList").append("<li>Pizza " + (index+1) + ":<br>Size: " + pizzas[index].size + "<br>Toppings: " + pizzas[index].toppings.join(", ") + "<br>Price: $" + pizzas[index].getCost().toFixed(2) + "</li>");
+  }
+  $("#orderSummaryBtn").text("Update Order Summary");
+}
 
 $(document).ready(function(){
 var availableToppings = ["pepperoni","chicken","cheese","mushrooms","olives","red_onions","bell_peppers"];
@@ -142,5 +150,10 @@ var pizzas = [];
     $("#pizzaCost").text("$" + pizzas[thisPizza()].getCost().toFixed(2));
     //update total cost
     $("#totalPrice").text("$" + getTotalCost(pizzas).toFixed(2));
+  });
+
+  $("#orderSummaryBtn").click(function(){
+    orderSummary(pizzas);
+    $("#orderSummary").show();
   });
 });
