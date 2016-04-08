@@ -5,7 +5,7 @@
 //pizza object
 function Pizza() {
   this.size = "reg" //other size options, "sm", "l", "xl"
-  this.toppings = ["cheese"]; //other options "pepperoni", "chicken", "mushrooms", "olives", "red onions", "bell peppers"
+  this.toppings = ["cheese"]; //other options "pepperoni", "chicken", "mushrooms", "olives", "red_onions", "bell_peppers"
 }
 //does pizza have a certain topping
 Pizza.prototype.hasTopping = function(topping) {
@@ -43,8 +43,8 @@ Pizza.prototype.getCost = function () {
   if(this.toppings.includes("cheese"))      {cost += 1;}
   if(this.toppings.includes("mushrooms"))   {cost += 0.5;}
   if(this.toppings.includes("olives"))      {cost += 0.5;}
-  if(this.toppings.includes("red onions"))  {cost += 0.5;}
-  if(this.toppings.includes("bell peppers")){cost += 0.5;}
+  if(this.toppings.includes("red_onions"))  {cost += 0.5;}
+  if(this.toppings.includes("bell_peppers")){cost += 0.5;}
   return cost;
 }
 
@@ -64,14 +64,19 @@ function redrawBorders(toppings, pizzas) {
   $(".topping").css("border", "3px solid black");
   //parse toppings and turn appropriate borders green
   toppings.forEach(function (item) {
-    if(pizzas[parseInt($("#pizzaNumber").val())].hasTopping(item)) {
+    if(pizzas[thisPizza()].hasTopping(item)) {
       $("#" + item).css("border", "5px solid #32CD32");
     }
   });
 }
 
+//gets the index of the pizza currently being altered
+function thisPizza() {
+  return parseInt($("#pizzaNumber").val());
+}
+
 $(document).ready(function(){
-var availableToppings = ["pepperoni","chicken","cheese","mushrooms","olives","red onions","bell peppers"];
+var availableToppings = ["pepperoni","chicken","cheese","mushrooms","olives","red_onions","bell_peppers"];
 var pizzaAmount = 0;
 var pizzas = [];
 
@@ -92,7 +97,7 @@ var pizzas = [];
     //draw borders for first pizza
     redrawBorders(availableToppings, pizzas);
     //update cost for first pizzaSize
-    $("#pizzaCost").text("$" + pizzas[parseInt($("#pizzaNumber").val())].getCost());
+    $("#pizzaCost").text("$" + pizzas[thisPizza()].getCost());
     //update total cost
     $("#totalPrice").text("$" + getTotalCost(pizzas));
     //show main content
@@ -105,14 +110,36 @@ var pizzas = [];
     //redraws borders
     redrawBorders(availableToppings, pizzas);
     //get cost and display
-    $("#pizzaCost").text("$" + pizzas[parseInt($("#pizzaNumber").val())].getCost());
+    $("#pizzaCost").text("$" + pizzas[thisPizza()].getCost());
   });
 
   //anytime the pizza size is changed
   $("#pizzaSize").change(function(){
     //set new pizza size for the selected pizza
-    pizzas[parseInt($("#pizzaNumber").val())].size = $("#pizzaSize").val();
+    pizzas[thisPizza()].size = $("#pizzaSize").val();
     //print new cost
-    $("#pizzaCost").text("$" + pizzas[parseInt($("#pizzaNumber").val())].getCost());
+    $("#pizzaCost").text("$" + pizzas[thisPizza()].getCost());
+    //update total cost
+    $("#totalPrice").text("$" + getTotalCost(pizzas));
+  });
+
+  //when an ingredient is clicked
+  $("#pizzaOptions img").click(function(){
+    var topping = this.closest("div").id;
+    //check if topping is in pizza
+    if (pizzas[thisPizza()].hasTopping(topping)) {
+      //if already in pizza, remove
+      pizzas[thisPizza()].removeTopping(topping);
+    }
+    else {
+      //if not, add
+      pizzas[thisPizza()].addTopping(topping)
+    }
+    //redraw borders
+    redrawBorders(availableToppings, pizzas);
+    //print cost
+    $("#pizzaCost").text("$" + pizzas[thisPizza()].getCost());
+    //update total cost
+    $("#totalPrice").text("$" + getTotalCost(pizzas));
   });
 });
