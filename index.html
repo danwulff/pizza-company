@@ -1,9 +1,86 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title></title>
+    <script src="js/jquery-1.12.3.min.js"></script>
+    <script src="js/scripts.js"></script>
+    <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css">
+    <link href="css/styles.css" rel="stylesheet" type="text/css">
+    <title>Vinnie's Pizza</title>
   </head>
   <body>
-
+    <div class="container">
+      <!-- Header -->
+      <div class="row">
+        <div id="header">
+          <h1>Welcome to Vinnie's Pizza</h1>
+          <div class="form-group">
+            <label for="sel1">How many pizza's would you like to order?</label>
+            <select class="form-control" id="pizzaAmount" style="width:8%; display:inline-block;">
+              <option>0</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+              <option>6</option>
+              <option>7</option>
+              <option>8</option>
+              <option>9</option>
+              <option>10</option>
+            </select>
+          </div>
+        </div>
+        <hr>
+      </div>
+      <!-- End: Header -->
+      <!-- Main Content-->
+      <div class="row" id="mainContent">
+        <!-- Pizza Chooser -->
+        <div class="col-xs-2">
+            <div class="form-group">
+              <label for="sel1">Select options for:</label>
+              <select class="form-control" id="pizzaAmount">
+                <option>Pizza 1</option>
+              </select>
+            </div>
+            <p>Pizza cost: <span id="pizzaCost">$</span></p>
+        </div>
+        <!-- End: Pizza Chooser -->
+        <!-- Topping Selector -->
+        <div class="col-xs-10">
+          <div id="pizzaOptions">
+            <div id="toppingCheese" class="topping">
+              <img src="img/cheese.jpg" alt="Mozzerella Cheese"/>
+            </div>
+            <div id="toppingPepperoni" class="topping">
+              <img src="img/pepperoni.jpg" alt="Pepperoni"/>
+            </div>
+            <div id="toppingChicken" class="topping">
+              <img src="img/chicken.jpg" alt="Chicken"/>
+            </div>
+            <div id="toppingMushrooms" class="topping">
+              <img src="img/mushrooms.jpg" alt="Sliced mushrooms"/>
+            </div>
+            <div id="toppingOlives" class="topping">
+              <img src="img/olives.jpg" alt="Sliced black olives"/>
+            </div>
+            <div id="toppingOnion" class="topping">
+              <img src="img/onions.jpg" alt="Sliced red onions"/>
+            </div>
+            <div id="toppingPeppers" class="topping">
+              <img src="img/peppers.jpg" alt="Cubed bell peppers"/>
+            </div>
+          </div>
+        </div>
+        <!-- End: Topping Selector -->
+      </div>
+      <!-- End: Main Content -->
+      <!-- Total Cost -->
+      <div class="row" id="total">
+        <hr>
+        <h3>Total Price: <span id="totalPrice">$</span></h3>
+      </div>
+      <!-- End: Total Cost -->
+    </div>
   </body>
 </html>

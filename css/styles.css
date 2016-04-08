@@ -1,0 +1,33 @@
+body {
+  font-family: sans-serif;
+}
+
+h1 {
+}
+
+h3 {
+  font-size: 18px;
+}
+
+.topping {
+  display: inline-block;
+  margin: 10px;
+  border: 3px solid black;
+  border-radius: 10px;
+}
+
+.topping img {
+  width: 100px;
+}
+
+#header {
+  text-align: center;
+}
+
+#mainContent {
+  display: none;
+}
+
+#total {
+  display: none;
+}
