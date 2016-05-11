@@ -6,7 +6,7 @@
 
 ## Description
 
-_This is an example of javascript use, specifically object oriented programming. This is a html/css/javascript website that gives a user an interface for ordering pizzas. The pizza ordering system makes uses of objects to allow large orders of unique pizzas. The website can be seen at danwulff.github.com/io/pizza-company_
+_This is an example of javascript use, specifically object oriented programming. This is a html/css/javascript website that gives a user an interface for ordering pizzas. The pizza ordering system makes uses of objects to allow large orders of unique pizzas. The website can be seen at http://danwulff.github.io/pizza-company_
 
 ## Setup/Installation Requirements
 
